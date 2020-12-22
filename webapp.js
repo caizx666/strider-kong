@@ -1,13 +1,14 @@
-'use strict';
+"use strict";
 
-const debug = require('debug')('strider-kong:webapp');
+const debug = require("debug")("strider-kong:webapp");
 
 module.exports = {
   // mongoose schema, if you need project-specific config
   config: {
     kong: {
-      service: {type: String, default: ''},
-      route: {type: String, default: ''}
-    }
-  }
+      url: { type: String },
+      service: { type: String },
+      route: { type: String },
+    },
+  },
 };

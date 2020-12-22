@@ -25,6 +25,7 @@ app.controller("KongController", [
 
     $scope.$watch("configs[branch.name].kong.config", function (value) {
       $scope.config = {
+        ...value,
         service: (value && value.service) || configDefaults.service,
         route: (value && value.route) || configDefaults.route,
       };
