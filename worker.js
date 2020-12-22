@@ -1,6 +1,6 @@
 "use strict";
 
-const debug = require("debug")("strider-kong:worker");
+const debug = console.debug;
 const kongapi = require("./lib/kong-registerapi");
 
 module.exports = {
