@@ -35,13 +35,16 @@ module.exports = {
       //function style (calling done is a MUST)
       deploy: function (context, done) {
         //this will show up in the terminal log as 'info'
-        debug(config);
+        debug(config.url, config.service, config.route);
+
+        const service = JSON.parse(config.service);
+        const route = JSON.parse(config.route);
 
         kongapi
           .registerapi({
             ...config,
-            service: JSON.parse(config.service),
-            route: JSON.parse(config.route),
+            service,
+            route,
           })
           .then(() => {
             done(null, true);
