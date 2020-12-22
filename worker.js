@@ -29,9 +29,9 @@ module.exports = {
       // For each phase that you want to deal with, provide either a
       // shell command [string] or [Object] (as demo'd below)
       // or a fn(context, done(err, didrun))
-      environment: '',
-      prepare: '',
-      test:'',
+      environment: "",
+      prepare: "",
+      test: "",
       //function style (calling done is a MUST)
       deploy: function (context, done) {
         //this will show up in the terminal log as 'info'
@@ -39,6 +39,7 @@ module.exports = {
 
         kongapi
           .registerapi({
+            ...config,
             service: JSON.parse(config.service),
             route: JSON.parse(config.route),
           })
@@ -49,7 +50,7 @@ module.exports = {
             done(err, true);
           });
       },
-      cleanup: ''
+      cleanup: "",
     });
   },
   // this is only used if there is _no_ plugin configuration for a
