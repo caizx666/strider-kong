@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const app = window.app;
 const configDefaults = {
@@ -18,17 +18,23 @@ const configDefaults = {
 /*
  * $scope.configs, $scope.branch and $scope.pluginConfig, among others are available from the parent scope
  * */
-app.controller('KongController', ['$scope', function ($scope) {
-  $scope.saving = false;
+app.controller("KongController", [
+  "$scope",
+  function ($scope) {
+    $scope.saving = false;
 
-  $scope.$watch('configs[branch.name].kong.config', function (value) {
-    $scope.config = value || configDefaults;
-  });
-
-  $scope.save = function () {
-    $scope.saving = true;
-    $scope.pluginConfig('kong', $scope.config, function () {
-      $scope.saving = false;
+    $scope.$watch("configs[branch.name].kong.config", function (value) {
+      $scope.config = {
+        service: (value && value.service) || configDefaults.service,
+        route: (value && value.route) || configDefaults.route,
+      };
     });
-  };
-}]);
+
+    $scope.save = function () {
+      $scope.saving = true;
+      $scope.pluginConfig("kong", $scope.config, function () {
+        $scope.saving = false;
+      });
+    };
+  },
+]);
