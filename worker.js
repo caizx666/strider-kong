@@ -1,6 +1,6 @@
 "use strict";
 
-const debug = console.debug;
+const debug = console.log;
 const kongapi = require("./lib/kong-registerapi");
 
 module.exports = {
