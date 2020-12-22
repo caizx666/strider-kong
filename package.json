@@ -29,7 +29,7 @@
   "strider": {
     "type": "job",
     "id": "kong",
-    "title": "Plugin Kong",
+    "title": "Kong",
     "worker": "worker.js",
     "webapp": "webapp.js",
     "icon": "icon.png",
